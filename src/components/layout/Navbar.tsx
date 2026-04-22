@@ -5,7 +5,7 @@ import { PiWineDuotone } from "react-icons/pi";
 import { BiMessageError } from "react-icons/bi";
 import { MdContactSupport } from "react-icons/md";
 import Link from 'next/link';
-import { name } from '../../../node_modules/next/dist/compiled/webpack/bundle5';
+
 const navLinks =[
     {
         href: '/',
@@ -39,7 +39,7 @@ export default function Navbar() {
         <div className='flex items-center justify-between px-10 '>
             {/* Logo */}
             <div >
-                <h1 className='text-2xl font-bold hover:text-cyan-300'><Link href="/">Wine Space</Link></h1>
+                <h1 className='text-2xl font-bold hover:text-orange-400'><Link href="/">Wine Space</Link></h1>
             </div>
 
 
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <ul className='flex justify-between items-center gap-10'>
                     {navLinks.map((link,index) => (
                         <li key={index}>
-                        <Link  href={link.href} className='font-bold hover:text-cyan-300'>{link.name}</Link>
+                        <Link  href={link.href} className='font-bold hover:text-orange-400'>{link.name}</Link>
                         </li>
                     ))}
                     
@@ -66,16 +66,16 @@ export default function Navbar() {
 
                  <ul className='flex justify-around items-center gap-10  text-3xl'>
                     <li>
-                        <Link href="" className='font-bold hover:text-cyan-300'><FaHome /></Link>
+                        <Link href="" className='font-bold hover:text-orange-400'><FaHome /></Link>
                     </li>
                     <li>
-                        <Link href="" className='font-bold hover:text-cyan-300'><PiWineDuotone /></Link>
+                        <Link href="" className='font-bold hover:text-orange-400'><PiWineDuotone /></Link>
                     </li>
                     <li>
-                        <Link href="" className='font-bold hover:text-cyan-300'><BiMessageError /></Link>
+                        <Link href="" className='font-bold hover:text-orange-400'><BiMessageError /></Link>
                     </li>
                     <li>
-                        <Link href="" className='font-bold hover:text-cyan-300'><MdContactSupport /></Link>
+                        <Link href="" className='font-bold hover:text-orange-400'><MdContactSupport /></Link>
                     </li>
                 </ul>
             </div>

@@ -1,4 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection";
+import FeaturedWines from "@/components/sections/FeaturedWines";
 import Navbar from "@/components/layout/Navbar";
 
 
@@ -9,7 +10,7 @@ export default function Home() {
         
           
         <HeroSection/>
-      <h1>Featured</h1>
+        <FeaturedWines/>
         <h1>Footer</h1>
   </section>
   );
