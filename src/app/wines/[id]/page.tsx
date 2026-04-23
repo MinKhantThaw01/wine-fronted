@@ -3,7 +3,8 @@
 import BackButton from "@/components/button/backButton";
 import { wines } from "@/data/wines";
 import Image from "next/image";
-import Link from "next/link";
+import { notFound } from "next/navigation";
+
 
 
 type Props = {
@@ -13,25 +14,13 @@ type Props = {
 };
 
 export default async function Page({ params }: Props) {
-  const { id } = await params;
+  const { id } =await  params;
+console.log(id);
 
+const wineId = Number(id);
+  const wine = wines.find((item) => item.id === wineId);
 
-
-  const wine = wines.find((item) => item.id === +id);
-
-  if (!wine) {
-    return (
-      <div className="min-h-screen bg-[#0b0b0d] flex items-center justify-center px-4">
-        <div className="rounded-3xl border border-white/10 bg-white/5 px-8 py-10 text-center backdrop-blur-xl">
-          <h1 className="text-3xl font-semibold text-white">
-            Wine not found
-          </h1>
-
-          <BackButton />
-        </div>
-      </div>
-    );
-  }
+  if (!wine) notFound();
 
   return (
     <section className="min-h-screen bg-[#0b0b0d] px-4 py-10 text-white">
@@ -50,14 +39,14 @@ export default async function Page({ params }: Props) {
         </div>
 
         {/* Right Side */}
-        <div className="flex flex-col justify-center">
+        <article className="flex flex-col justify-center">
           <span className="mb-4 w-fit rounded-full border border-white/10 bg-white/10 px-4 py-1 text-sm text-white/70">
             Premium Selection
           </span>
 
-          <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+          <header className="text-4xl font-bold leading-tight md:text-5xl">
             {wine.name}
-          </h1>
+          </header>
 
           <p className="mt-4 text-lg text-white/60">
             Origin: {wine.country}
@@ -86,7 +75,7 @@ export default async function Page({ params }: Props) {
           </div>
 
           {/* Features */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <section className="mt-10 grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <p className="text-sm text-white/50">Type</p>
               <p className="mt-1 font-semibold">Luxury Wine</p>
@@ -101,8 +90,8 @@ export default async function Page({ params }: Props) {
               <p className="text-sm text-white/50">Quality</p>
               <p className="mt-1 font-semibold">Premium Grade</p>
             </div>
-          </div>
-        </div>
+          </section>
+        </article>
       </div>
     </section>
   );
