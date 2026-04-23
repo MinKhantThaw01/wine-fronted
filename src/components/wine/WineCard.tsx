@@ -1,5 +1,6 @@
 import { Wine } from "@/types/wine";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   wine: Wine;
@@ -7,6 +8,7 @@ type Props = {
 
 export default function WineCard({ wine }: Props) {
   return (
+    <Link href={`/wines/${wine.id}`} >
     <div className="group w-full max-w-sm h-full">
       <div className="h-full bg-[#0b0b0d] flex items-stretch justify-center p-4 rounded-lg shadow-md overflow-hidden">
         <article
@@ -75,5 +77,6 @@ export default function WineCard({ wine }: Props) {
         </article>
       </div>
     </div>
+    </Link>
   );
 }
